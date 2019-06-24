@@ -1,0 +1,17 @@
+<div class="col-4 mx-auto text-center">
+  <div class="list-group list-group-horizontal-md">
+    {% if query == 'All'%}
+    <a class="list-group-item list-group-item-action py-2 active" id="All" active" href="{% url 'index' %}">All</a>
+    {% else %}
+    <a class="list-group-item list-group-item-action py-2" id="All" active" href="{% url 'index' %}">All</a>
+    {% endif %}
+
+    {% for category in categories %}
+      {% if query == category.name %}
+      <a class="list-group-item list-group-item-action py-2 active" id="{{category.name}}" href="{% url 'index' %}?filter={{category.name}}">{{category.name}}</a>
+      {% else %}
+      <a class="list-group-item list-group-item-action py-2" id="{{category.name}}" href="{% url 'index' %}?filter={{category.name}}">{{category.name}}</a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>

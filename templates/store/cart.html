@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row mb-4">
+    {# include '_filter.html' #}
+</div>
+<div class="row">
+    {% if purchases.count == 0 %}
+        <h1 class="display-4">0 purchases</h1>
+    {% else %}
+        <ul class="list-unstyled col-12">
+        {% for purchase in purchases %}
+            <li class="media border m-1 p-1 w-100">
+                <img src="{{ purchase.device.picture }}" class="mr-3" alt="..." width="128" height="128">
+                <div class="media-body">
+                    <h5 class="mt-3 mb-1">{{ purchase.device.brand }} {{ purchase.device.name }}</h5>
+                    {{ purchase.price }}$<br>
+                    <small class="text-muted">{{purchase.created_at}}</small>
+                </div>
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+<div class="row">
+    {# include '_pagination.html' #}
+</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="panel mt-5">
+  <div class="panel-body row">
+      
+    <div class="col-md-5">
+        <img class="img-thumbnail" src="{{device.picture }}" alt="">
+    </div>
+      
+      <div class="col-md-7">
+          <h4 class="pro-d-title">{{ device.brand }} {{ device.name }}</h4>
+          <p>
+            Praesent ac condimentum felis. Nulla at nisl orci, at dignissim dolor, The best product descriptions address your ideal buyer directly and personally. The best product descriptions address your ideal buyer directly and personally.
+          </p>
+          <div class="m-bot15"> 
+            <strong>Price : </strong> <span class="">${{ device.price}}</span>
+          </div>
+      
+          <form class="form-group" method="POST" action="">
+              {% csrf_token %}
+            <input type="hidden" name="device_id" value="{{device.id}}"/>
+
+            <button type="submit" class="btn btn-danger mt-3">
+                <svg id="i-cart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <path d="M6 6 L30 6 27 19 9 19 M27 23 L10 23 5 2 2 2" />
+                    <circle cx="25" cy="27" r="2" />
+                    <circle cx="12" cy="27" r="2" />
+                </svg> 
+                Purchase
+            </button>
+          </form>
+
+
+      </div>
+  </div>
+</section>
+{% endblock %}

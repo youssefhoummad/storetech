@@ -1,0 +1,11 @@
+<div class="card h-100 text-center">
+  <div class="card-body">
+    <a href="{% url 'detail' device_id=device.id %}"><img class="card-img-top" src="{{device.picture}}" alt=""></a>
+  </div>
+  <div class="card-footer">
+        <h4 class="card-title">
+          <a href="{% url 'detail' device_id=device.id %}">{{device.name}}</a>
+        </h4>
+    <h5>${{device.price}}</h5>
+  </div>
+</div>
